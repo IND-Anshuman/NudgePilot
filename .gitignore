@@ -1,0 +1,14 @@
+# .gitignore — .env must NEVER be committed (secrets hygiene)
+.env
+.env.*
+!*.example
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+nudgepilot_drafts/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/

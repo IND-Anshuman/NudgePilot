@@ -1,0 +1,8 @@
+google-genai>=1.0.0
+google-cloud-firestore>=2.19.0
+google-cloud-run>=0.10.10
+google-cloud-scheduler>=2.16.0
+google-auth>=2.35.0
+# FastAPI is used by the Cloud Run service wrapper (cloud/app.py)
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
