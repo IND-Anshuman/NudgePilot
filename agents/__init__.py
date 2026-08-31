@@ -1,0 +1,1 @@
+# NudgePilot Agent layer - sub-agents used by the root coordinator.

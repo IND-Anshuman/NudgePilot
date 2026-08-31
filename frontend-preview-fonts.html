@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Font Preview — NudgePilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:wght@900&family=JetBrains+Mono:wght@400;600&family=Anton&family=Inter+Tight:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#0B0B0F; --paper:#13131A; --paper-2:#1C1C25; --acid:#D7FF3C; --rust:#FF6B3C; --bone:#F2EFE6; --bone-mute:#9A958A; --hairline:#2A2A35; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--ink); color: var(--bone); font-family: 'Inter Tight', system-ui, sans-serif; padding: 48px 32px; }
+  h1 { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone-mute); margin-bottom: 32px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 64px; }
+  @media (max-width: 768px) { .pair { grid-template-columns: 1fr; } }
+  .swatch { background: var(--paper); border: 1px solid var(--hairline); border-radius: 18px; padding: 32px; }
+  .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--bone-mute); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px; }
+  .hero-line {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+    font-weight: 900;
+  }
+  .stat-num {
+    font-size: clamp(6rem, 14vw, 10rem);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: var(--acid);
+    margin-bottom: 24px;
+  }
+  .body-line { font-size: 18px; line-height: 1.6; max-width: 60ch; color: var(--bone); margin-bottom: 16px; }
+  .mono-line { font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.5; color: var(--bone); white-space: pre; padding: 16px; background: var(--paper-2); border-radius: 12px; border: 1px solid var(--hairline); }
+  .paid { border-color: var(--rust); border-width: 2px; }
+  .free { border-color: var(--acid); border-width: 2px; }
+  .tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 4px 10px; border-radius: 999px; margin-bottom: 16px; }
+  .tag-paid { background: var(--rust); color: var(--ink); }
+  .tag-free { background: var(--acid); color: var(--ink); }
+  .stack { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--bone-mute); margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--hairline); }
+</style>
+</head>
+<body>
+  <h1>NudgePilot Font Pair Preview — Side by side</h1>
+
+  <!-- ROW 1: Display / Headline -->
+  <div class="pair">
+    <div class="swatch paid">
+      <span class="tag tag-paid">Paid · PP Editorial New</span>
+      <div class="label">Display headline</div>
+      <div class="hero-line" style="font-family: 'DM Serif Display', 'GT Sectra', serif; font-style: italic;">Trackers remember.<br>NudgePilot acts.</div>
+      <div class="stack">PP Editorial New · $90+ · Pangram Pangram</div>
+    </div>
+    <div class="swatch free">
+      <span class="tag tag-free">Free · GT Sectra alt (Playfair Display Black)</span>
+      <div class="label">Display headline</div>
+      <div class="hero-line" style="font-family: 'Playfair Display', serif; font-weight: 900;">Trackers remember.<br>NudgePilot acts.</div>
+      <div class="stack">Playfair Display · Free · Google Fonts (GT Sectra is paid; Playfair carries similar editorial weight)</div>
+    </div>
+  </div>
+
+  <!-- ROW 2: Big numeral -->
+  <div class="pair">
+    <div class="swatch paid">
+      <span class="tag tag-paid">Paid · Druk Wide</span>
+      <div class="label">Display numeral</div>
+      <div class="stat-num" style="font-family: 'Bebas Neue', 'Druk Wide', sans-serif;">53%</div>
+      <div class="body-line">of job seekers got ghosted in 2025 — a three-year high.</div>
+      <div class="stack">Druk Wide · Commercial Type</div>
+    </div>
+    <div class="swatch free">
+      <span class="tag tag-free">Free · Anton (closest free condensed display)</span>
+      <div class="label">Display numeral</div>
+      <div class="stat-num" style="font-family: 'Anton', sans-serif;">53%</div>
+      <div class="body-line">of job seekers got ghosted in 2025 — a three-year high.</div>
+      <div class="stack">Anton · Free · Google Fonts</div>
+    </div>
+  </div>
+
+  <!-- ROW 3: Body -->
+  <div class="pair">
+    <div class="swatch paid">
+      <span class="tag tag-paid">Paid · Geist Sans</span>
+      <div class="label">Body / UI</div>
+      <div class="body-line" style="font-family: 'Inter Tight', 'Geist', system-ui, sans-serif;">The black hole is not the ATS. A persistent myth says 75% of applications are auto-rejected — that stat has no credible source. The real failure is human inattention at scale.</div>
+      <div class="stack">Geist · Vercel (some weights free, full family paid)</div>
+    </div>
+    <div class="swatch free">
+      <span class="tag tag-free">Free · Inter Tight (Geist's closest free cousin)</span>
+      <div class="label">Body / UI</div>
+      <div class="body-line" style="font-family: 'Inter Tight', system-ui, sans-serif;">The black hole is not the ATS. A persistent myth says 75% of applications are auto-rejected — that stat has no credible source. The real failure is human inattention at scale.</div>
+      <div class="stack">Inter Tight · Free · Google Fonts (note: banned Inter, but Inter Tight is the condensed cousin and acceptable per skill guidance)</div>
+    </div>
+  </div>
+
+  <!-- ROW 4: Mono -->
+  <div class="pair">
+    <div class="swatch paid">
+      <span class="tag tag-paid">Paid · Berkeley Mono</span>
+      <div class="label">Code / Terminal</div>
+      <div class="mono-line" style="font-family: 'JetBrains Mono', 'Berkeley Mono', monospace;">APPLIED ──day 7, silent──► NUDGED_1
+   │                          │
+   └── reply?? ───────────────┴──► RESPONDED</div>
+      <div class="stack">Berkeley Mono · $75+ · Berkeley Graphics</div>
+    </div>
+    <div class="swatch free">
+      <span class="tag tag-free">Free · JetBrains Mono</span>
+      <div class="label">Code / Terminal</div>
+      <div class="mono-line" style="font-family: 'JetBrains Mono', monospace;">APPLIED ──day 7, silent──► NUDGED_1
+   │                          │
+   └── reply?? ───────────────┴──► RESPONDED</div>
+      <div class="stack">JetBrains Mono · Free · JetBrains (industry-standard fallback)</div>
+    </div>
+  </div>
+
+  <p style="margin-top: 48px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--bone-mute);">Differences to look for: PP Editorial New (italic) has more contrast & elegance vs Playfair's wider, blockier strokes. Druk Wide is much narrower than Anton (Druk is 60–70% the width). Geist has crisper geometry than Inter Tight. Berkeley Mono has unique ligatures & tighter tracking vs JetBrains.</p>
+</body>
+</html>

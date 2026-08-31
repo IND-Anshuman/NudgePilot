@@ -1,0 +1,60 @@
+{
+  "sources": [
+    {
+      "n": 1,
+      "title": "Candidates ghosted at 3-year high",
+      "src": "Fortune",
+      "url": "https://fortune.com/2026/03/20/job-seekers-arent-imagining-things-candidates-ghosted-by-employers-hit-three-year-high/",
+      "blurb": "53% of job seekers reported being ghosted by employers in 2025 — a three-year high."
+    },
+    {
+      "n": 2,
+      "title": "The Exact Follow-Up Formula",
+      "src": "Gaply",
+      "url": "https://usegaply.com/blog/how-to-get-recruiter-response-follow-up-formula",
+      "blurb": "Most candidates never follow up. A small follow-up cadence dramatically increases recruiter response rates."
+    },
+    {
+      "n": 3,
+      "title": "How Long to Hear Back After Applying",
+      "src": "Careery",
+      "url": "https://careery.pro/blog/resume-applications/how-long-to-hear-back-from-job-application",
+      "blurb": "The median time to first response after a job application is 6–7 days."
+    },
+    {
+      "n": 4,
+      "title": "State of Recruiting 2025",
+      "src": "SHRM",
+      "url": "https://www.shrm.org/executive-network/insights/people-strategy/state-of-recruiting-2025-insights-to-maximize-recruitment",
+      "blurb": "The median employer time-to-fill runs approximately 44 days."
+    },
+    {
+      "n": 5,
+      "title": "The Job Application Process",
+      "src": "LinkedIn",
+      "url": "https://www.linkedin.com/pulse/job-application-process-facts-figures-alb",
+      "blurb": "Completing a single job application takes approximately 23 minutes."
+    },
+    {
+      "n": 6,
+      "title": "State of Job Search 2025",
+      "src": "Interview Guys",
+      "url": "https://blog.theinterviewguys.com/state-of-job-search-2025-research-report/",
+      "blurb": "It takes roughly 32 applications per successful hire on average."
+    },
+    {
+      "n": 7,
+      "title": "Candidate ghosting statistics",
+      "src": "Glozo",
+      "url": "https://www.glozo.com/blog/candidate-ghosting-statistics",
+      "blurb": "48% of applicants received zero response in 2025."
+    },
+    {
+      "n": 8,
+      "title": "ATS Statistics: the 75% stat is fake",
+      "src": "ResumeAdapter",
+      "url": "https://www.resumeadapter.com/ats-statistics",
+      "blurb": "The '75% auto-rejected' stat has no credible source — the black hole is human inattention, not ATS robots."
+    }
+  ]
+}

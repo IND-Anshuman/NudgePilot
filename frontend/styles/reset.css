@@ -1,0 +1,68 @@
+/* ============================================================
+   NudgePilot — Minimal Modern Reset
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  scroll-behavior: smooth;
+  /* iOS Safari viewport jump prevention */
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  min-height: 100%;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; background: none; border: none; outline: none; }
+button { cursor: pointer; }
+
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--acid);
+  outline-offset: 3px;
+  border-radius: var(--r-input);
+}
+
+ul, ol { list-style: none; }
+
+::selection {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+/* skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: var(--z-tooltip);
+  padding: 12px 20px;
+  background: var(--acid);
+  color: var(--ink);
+  font-weight: 700;
+  border-radius: var(--r-input);
+  transition: top var(--dur-fast) var(--ease-fluid);
+}
+.skip-link:focus { top: 16px; }

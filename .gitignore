@@ -12,3 +12,11 @@ dist/
 build/
 .pytest_cache/
 .mypy_cache/
+
+# local tooling / personal dirs that must NEVER enter the submission
+.hermes/
+# stray duplicates (the real packages live at repo root)
+deploy/agents/
+deploy/cloud/
+deploy/core/
+deploy/delivery/

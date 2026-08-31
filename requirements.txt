@@ -1,4 +1,5 @@
 google-genai>=1.0.0
+python-dotenv>=1.0.0
 google-cloud-firestore>=2.19.0
 google-cloud-run>=0.10.10
 google-cloud-scheduler>=2.16.0

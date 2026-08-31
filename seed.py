@@ -1,10 +1,10 @@
 # Deterministic seed-data generator for a reproducible demo.
 """
-Populates the store with ~30 applications at staggered ages plus a realistic
-analyst of inbound recruiter emails, so a single `python -m nudgepilot_cli run`
-primed with this seed produces a believable full workflow: some apps due for
-nudge #1, some due for nudge #2, some to be ghost-closed, and a couple of
-inbound replies (one interview invite, one rejection, one soft-pending).
+Populates the store with ~30 applications at staggered ages plus realistic
+inbound recruiter emails, so a single `python nudgepilot_cli.py auto` produces
+a believable full workflow: some apps due for nudge #1, some due for nudge #2,
+some to be ghost-closed, and inbound replies (interview invite, rejection,
+soft-pending, a question) for the response monitor + firm-memory + advisor.
 
 All data is synthetic and generated with a fixed RNG seed for reproducibility.
 """
@@ -13,9 +13,8 @@ from __future__ import annotations
 
 import datetime as _dt
 import random
-import uuid
 
-from core.domain import Application, InboxEmail, Status
+from core.domain import Application, InboxEmail, Status, Interaction, InteractionKind
 from core.store import BaseStore
 
 _COMPANIES = [
@@ -80,15 +79,18 @@ def _age(now: _dt.datetime, days: float) -> _dt.datetime:
     return now - _dt.timedelta(days=days)
 
 
-def seed_store(store: BaseStore, now: _dt.datetime | None = None) -> tuple[list[Application], list[InboxEmail]]:
+def seed_store(
+    store: BaseStore,
+    now: _dt.datetime | None = None,
+) -> tuple[list[Application], list[InboxEmail]]:
     now = now or _dt.datetime.now(_dt.timezone.utc)
-    rng = random.Random(42)
+    _rng = random.Random(42)
 
     apps: list[Application] = []
     # Explicit ages trigger the interesting policy outcomes:
     #   day 8-9  -> due nudge #1
-    #   day 9 + already nudged once -> due nudge #2
-    #   day 50 + nudged twice -> ghost candidate
+    #   day 12+ already nudged once -> due nudge #2
+    #   day 35+ nudged twice + old -> ghost candidate
     age_plan = [
         2, 3, 4, 5, 6, 7, 8, 8, 9, 9, 10, 10, 11, 12, 14, 24, 40, 45, 50, 55,
         60, 65, 8, 9, 10, 14, 20, 30, 45, 60,
@@ -117,6 +119,14 @@ def seed_store(store: BaseStore, now: _dt.datetime | None = None) -> tuple[list[
             app.status = Status.NUDGED_2
             app.nudges_sent = 2
             app.last_touch_at = _age(now, days_old - 8)
+        # record the "applied" interaction so history/firm-memory has a base
+        app.interactions.append(Interaction(
+            kind=InteractionKind.APPLIED,
+            at=applied_at,
+            detail=f"applied via {source}",
+            direction="outbound",
+            content=f"Submitted application for {role} at {company}.",
+        ))
         apps.append(app)
         store.upsert_app(app)
 
@@ -125,7 +135,7 @@ def seed_store(store: BaseStore, now: _dt.datetime | None = None) -> tuple[list[
     for j, (frag, subj, snap, _kind) in enumerate(_RESPONSE_SEED):
         emails.append(InboxEmail(
             id=f"email_{j}",
-            from_addr=f"{'recruiter'}{j}@example.com",
+            from_addr=f"{frag}recruiter@example.com",
             subject=subj,
             snippet=snap,
             body=snap,

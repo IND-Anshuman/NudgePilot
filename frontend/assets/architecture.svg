@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" fill="none" role="img" aria-label="NudgePilot architecture diagram">
+  <defs>
+    <linearGradient id="acid-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D7FF3C" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#D7FF3C" stop-opacity="0"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9A958A"/>
+    </marker>
+    <marker id="arrow-acid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#D7FF3C"/>
+    </marker>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2A2A35" stroke-width="0.5" opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- background grid -->
+  <rect width="880" height="480" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Title -->
+  <text x="24" y="36" font-family="JetBrains Mono, monospace" font-size="11" fill="#9A958A" letter-spacing="2">NUDGEPILOT // ARCHITECTURE</text>
+  <line x1="24" y1="48" x2="856" y2="48" stroke="#2A2A35" stroke-width="1"/>
+
+  <!-- ============ COL 1: TRIGGERS ============ -->
+  <g transform="translate(24, 80)">
+    <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="10" fill="#9A958A" letter-spacing="2">TRIGGERS</text>
+    <!-- scheduler -->
+    <g transform="translate(0, 24)">
+      <rect x="0" y="0" width="180" height="64" rx="14" fill="#13131A" stroke="#2A2A35"/>
+      <text x="14" y="22" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#F2EFE6">Cloud Scheduler</text>
+      <text x="14" y="42" font-family="JetBrains Mono, monospace" font-size="10" fill="#9A958A">daily · 06:00 UTC</text>
+      <text x="14" y="56" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">cron: 0 6 * * *</text>
+    </g>
+    <!-- gmail watch -->
+    <g transform="translate(0, 108)">
+      <rect x="0" y="0" width="180" height="64" rx="14" fill="#13131A" stroke="#2A2A35"/>
+      <text x="14" y="22" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#F2EFE6">Gmail Watch</text>
+      <text x="14" y="42" font-family="JetBrains Mono, monospace" font-size="10" fill="#9A958A">inbox → Pub/Sub</text>
+      <text x="14" y="56" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">push, real-time</text>
+    </g>
+    <!-- arrows to agent -->
+    <line x1="180" y1="56" x2="260" y2="180" stroke="#9A958A" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="180" y1="140" x2="260" y2="200" stroke="#9A958A" stroke-width="1.5" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- ============ COL 2: AGENT ============ -->
+  <g transform="translate(290, 80)">
+    <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="10" fill="#9A958A" letter-spacing="2">AGENT · ADK ORCHESTRATION</text>
+    <!-- coordinator -->
+    <g transform="translate(0, 24)">
+      <rect x="0" y="0" width="220" height="60" rx="14" fill="#1C1C25" stroke="#D7FF3C" stroke-opacity="0.45"/>
+      <text x="14" y="22" font-family="Inter Tight, sans-serif" font-size="13" font-weight="700" fill="#F2EFE6">Root Coordinator</text>
+      <text x="14" y="42" font-family="JetBrains Mono, monospace" font-size="10" fill="#D7FF3C">orchestrator.py</text>
+      <text x="14" y="54" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A">intake → nudge → ghost → digest</text>
+    </g>
+    <!-- sub-agents row -->
+    <g transform="translate(0, 100)">
+      <rect x="0" y="0" width="100" height="60" rx="12" fill="#13131A" stroke="#2A2A35"/>
+      <text x="10" y="22" font-family="Inter Tight, sans-serif" font-size="11" font-weight="600" fill="#F2EFE6">Intake</text>
+      <text x="10" y="38" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A">status_agent.py</text>
+      <text x="10" y="50" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">classify replies</text>
+    </g>
+    <g transform="translate(110, 100)">
+      <rect x="0" y="0" width="110" height="60" rx="12" fill="#13131A" stroke="#2A2A35"/>
+      <text x="10" y="22" font-family="Inter Tight, sans-serif" font-size="11" font-weight="600" fill="#F2EFE6">Nudge</text>
+      <text x="10" y="38" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A">nudge_agent.py</text>
+      <text x="10" y="50" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">drafts copy</text>
+    </g>
+    <!-- policy engine -->
+    <g transform="translate(0, 176)">
+      <rect x="0" y="0" width="220" height="60" rx="14" fill="#1C1C25" stroke="#D7FF3C" stroke-opacity="0.35"/>
+      <text x="14" y="22" font-family="Inter Tight, sans-serif" font-size="13" font-weight="700" fill="#F2EFE6">Policy Engine ⭐</text>
+      <text x="14" y="40" font-family="JetBrains Mono, monospace" font-size="10" fill="#D7FF3C">core/policy.py · deterministic</text>
+      <text x="14" y="54" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A">should_nudge · should_ghost · 15 tests</text>
+    </g>
+    <!-- internal connectors -->
+    <line x1="50" y1="84" x2="50" y2="100" stroke="#9A958A" stroke-width="1" marker-end="url(#arrow)"/>
+    <line x1="160" y1="84" x2="160" y2="100" stroke="#9A958A" stroke-width="1" marker-end="url(#arrow)"/>
+    <line x1="110" y1="160" x2="110" y2="176" stroke="#9A958A" stroke-width="1" marker-end="url(#arrow)"/>
+    <line x1="60" y1="236" x2="640" y2="280" stroke="#9A958A" stroke-width="1" marker-end="url(#arrow)" opacity="0.5"/>
+  </g>
+
+  <!-- ============ COL 3: STORE ============ -->
+  <g transform="translate(560, 80)">
+    <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="10" fill="#9A958A" letter-spacing="2">STATE</text>
+    <g transform="translate(0, 24)">
+      <rect x="0" y="0" width="140" height="80" rx="14" fill="#13131A" stroke="#2A2A35"/>
+      <text x="14" y="22" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#F2EFE6">Cloud Firestore</text>
+      <text x="14" y="40" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A">nudgepilot_applications</text>
+      <text x="14" y="56" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">Native mode</text>
+      <text x="14" y="68" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">us-central1</text>
+    </g>
+    <!-- in-memory dev swap -->
+    <g transform="translate(0, 120)">
+      <rect x="0" y="0" width="140" height="60" rx="14" fill="#13131A" stroke="#2A2A35" stroke-dasharray="3 3"/>
+      <text x="14" y="22" font-family="Inter Tight, sans-serif" font-size="11" font-weight="600" fill="#9A958A">InMemoryStore</text>
+      <text x="14" y="38" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">dev / tests</text>
+      <text x="14" y="50" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">deterministic seed</text>
+    </g>
+    <!-- connector from agent -->
+    <line x1="-30" y1="64" x2="0" y2="64" stroke="#9A958A" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="-30" y1="104" x2="0" y2="148" stroke="#9A958A" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- ============ COL 4: TEXT LAYER ============ -->
+  <g transform="translate(740, 80)">
+    <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="10" fill="#9A958A" letter-spacing="2">TEXT LAYER</text>
+    <g transform="translate(0, 24)">
+      <rect x="0" y="0" width="120" height="80" rx="14" fill="#13131A" stroke="#7CD7FF" stroke-opacity="0.45"/>
+      <text x="12" y="22" font-family="Inter Tight, sans-serif" font-size="11" font-weight="600" fill="#F2EFE6">Gemini 3.5</text>
+      <text x="12" y="38" font-family="JetBrains Mono, monospace" font-size="9" fill="#7CD7FF">flash</text>
+      <text x="12" y="54" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A">Vertex AI</text>
+      <text x="12" y="66" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A">or API</text>
+    </g>
+    <!-- offline fallback -->
+    <g transform="translate(0, 120)">
+      <rect x="0" y="0" width="120" height="60" rx="14" fill="#13131A" stroke="#2A2A35" stroke-dasharray="3 3"/>
+      <text x="12" y="22" font-family="Inter Tight, sans-serif" font-size="11" font-weight="600" fill="#9A958A">Offline LLM</text>
+      <text x="12" y="38" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">deterministic</text>
+      <text x="12" y="50" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B675E">zero credentials</text>
+    </g>
+    <line x1="-30" y1="64" x2="0" y2="64" stroke="#7CD7FF" stroke-width="1.5" marker-end="url(#arrow-acid)" opacity="0.7"/>
+  </g>
+
+  <!-- ============ BOTTOM ROW: DELIVERABLES ============ -->
+  <line x1="24" y1="368" x2="856" y2="368" stroke="#2A2A35" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="24" y="396" font-family="JetBrains Mono, monospace" font-size="10" fill="#9A958A" letter-spacing="2">DELIVERABLES</text>
+
+  <g transform="translate(24, 416)">
+    <!-- Gmail Drafts -->
+    <g>
+      <rect x="0" y="0" width="260" height="48" rx="12" fill="#13131A" stroke="#2A2A35"/>
+      <text x="14" y="20" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#F2EFE6">Gmail Drafts</text>
+      <text x="14" y="36" font-family="JetBrains Mono, monospace" font-size="9" fill="#D7FF3C">1-click approval · never auto-sent</text>
+      <!-- envelope icon -->
+      <g transform="translate(220, 12)" stroke="#F2EFE6" stroke-width="1.5" fill="none">
+        <rect x="0" y="0" width="28" height="20" rx="2"/>
+        <path d="M 0 0 L 14 12 L 28 0"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(310, 416)">
+    <!-- Digest email -->
+    <g>
+      <rect x="0" y="0" width="260" height="48" rx="12" fill="#13131A" stroke="#2A2A35"/>
+      <text x="14" y="20" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#F2EFE6">"While you slept" digest</text>
+      <text x="14" y="36" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A">morning report email</text>
+      <g transform="translate(220, 12)" stroke="#F2EFE6" stroke-width="1.5" fill="none">
+        <rect x="0" y="0" width="28" height="20" rx="2"/>
+        <line x1="0" y1="6" x2="28" y2="6"/>
+        <line x1="0" y1="12" x2="22" y2="12"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(596, 416)">
+    <!-- Action log -->
+    <g>
+      <rect x="0" y="0" width="260" height="48" rx="12" fill="#13131A" stroke="#2A2A35"/>
+      <text x="14" y="20" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#F2EFE6">Action log</text>
+      <text x="14" y="36" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A">auditable · chronological · per-tick</text>
+      <g transform="translate(220, 12)" stroke="#F2EFE6" stroke-width="1.5" fill="none">
+        <line x1="0" y1="4" x2="28" y2="4"/>
+        <line x1="0" y1="10" x2="28" y2="10"/>
+        <line x1="0" y1="16" x2="22" y2="16"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- legend / corner -->
+  <g transform="translate(720, 24)">
+    <rect x="0" y="0" width="138" height="18" rx="9" fill="#13131A" stroke="#2A2A35"/>
+    <circle cx="12" cy="9" r="3" fill="#D7FF3C"/>
+    <text x="22" y="13" font-family="JetBrains Mono, monospace" font-size="9" fill="#9A958A" letter-spacing="1.5">CODE-DECIDES · LLM-WRITES</text>
+  </g>
+</svg>

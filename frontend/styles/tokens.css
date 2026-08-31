@@ -1,0 +1,89 @@
+/* ============================================================
+   NudgePilot — Design Tokens
+   The single source of truth for color, type, space, motion.
+   All other CSS files reference these custom properties.
+   ============================================================ */
+
+:root {
+  /* ----- COLOR (OKLCH-computed for hue discipline) ------- */
+  --ink:          #0B0B0F;       /* dominant body bg — slightly cool */
+  --paper:        #13131A;       /* card surface — 1 step up */
+  --paper-2:      #1C1C25;       /* elevated inner core — 2 steps up */
+  --paper-3:      #25252F;       /* hover/active state for paper-2 */
+  --acid:         #D7FF3C;       /* primary accent — high-chroma lime */
+  --acid-deep:    #B8E02E;       /* hover state for acid */
+  --rust:         #FF6B3C;       /* warnings / rejections */
+  --sky:          #7CD7FF;       /* info / links / soft-pending */
+  --bone:         #F2EFE6;       /* primary text */
+  --bone-2:       #D9D5C9;       /* secondary text — still ≥4.5:1 on ink */
+  --bone-mute:    #9A958A;       /* tertiary text — used sparingly */
+  --bone-faint:   #6B675E;       /* hairlines, disabled */
+  --hairline:     #2A2A35;       /* divider color */
+  --hairline-2:   #3A3A48;       /* secondary divider */
+
+  /* ----- TYPOGRAPHY --------------------------------------- */
+  --font-display: 'PP Editorial New', 'GT Sectra', 'Playfair Display', 'Times New Roman', serif;
+  --font-body:    'Geist', 'Inter Tight', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Berkeley Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --font-numeral: 'Anton', 'Druk Wide', 'Bebas Neue', 'Impact', sans-serif;
+
+  /* type scale (clamp values — fluid) */
+  --fs-hero:      clamp(3.2rem, 9vw, 9rem);
+  --fs-h2:        clamp(2.2rem, 6vw, 5.5rem);
+  --fs-h3:        clamp(1.6rem, 3vw, 2.6rem);
+  --fs-stat:      clamp(5rem, 14vw, 14rem);
+  --fs-body:      clamp(1rem, 1.05vw, 1.125rem);
+  --fs-body-lg:   clamp(1.125rem, 1.4vw, 1.375rem);
+  --fs-mono:      0.8125rem;
+  --fs-eyebrow:   0.6875rem;
+
+  /* ----- SPACING RHYTHM (8-pt base, doubled for macro) ---- */
+  --s-1:  0.25rem;   /*  4px */
+  --s-2:  0.5rem;    /*  8px */
+  --s-3:  0.75rem;   /* 12px */
+  --s-4:  1rem;      /* 16px */
+  --s-5:  1.5rem;    /* 24px */
+  --s-6:  2rem;      /* 32px */
+  --s-7:  3rem;      /* 48px */
+  --s-8:  4rem;      /* 64px */
+  --s-9:  6rem;      /* 96px */
+  --s-10: 8rem;      /* 128px */
+  --s-11: 10rem;     /* 160px */
+
+  /* ----- RADII (disciplined — never 32px+ on cards) ------- */
+  --r-pill:    9999px;
+  --r-card:    22px;       /* upper-bound for cards */
+  --r-card-lg: 28px;       /* hero/feature cards */
+  --r-input:   14px;
+  --r-tag:     10px;
+
+  /* ----- SHADOWS (used sparingly, single source per elem) -- */
+  --shadow-inner: inset 0 1px 1px rgba(255,255,255,0.04);
+  --shadow-inner-strong: inset 0 1px 1px rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.02);
+  --shadow-float: 0 8px 32px -12px rgba(0,0,0,0.6);
+  --shadow-glow-acid: 0 0 24px -4px rgba(215,255,60,0.35);
+  --shadow-glow-rust: 0 0 24px -4px rgba(255,107,60,0.35);
+
+  /* ----- MOTION (custom cubic-beziers only) --------------- */
+  --ease-fluid:  cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    180ms;
+  --dur-med:     360ms;
+  --dur-slow:    720ms;
+  --dur-xslow:   1200ms;
+
+  /* ----- LAYOUT ------------------------------------------- */
+  --max-w:       1440px;
+  --max-w-text:  70ch;
+  --nav-h:       64px;
+
+  /* ----- Z-INDEX SCALE (semantic) ------------------------- */
+  --z-base:    1;
+  --z-raised:  10;
+  --z-sticky:  20;
+  --z-overlay: 40;
+  --z-modal:   60;
+  --z-toast:   70;
+  --z-tooltip: 80;
+}

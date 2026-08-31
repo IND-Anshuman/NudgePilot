@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0F">
+<meta name="description" content="NudgePilot — an agentic job-search ghosting nudger. Deterministic policy engine drafts the follow-ups you forget. Closes the pipelines that ghosted you.">
+
+<title>NudgePilot — Trackers remember. NudgePilot acts.</title>
+
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/reset.css">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/components.css">
+<link rel="stylesheet" href="styles/sections.css">
+
+<!-- Open Graph -->
+<meta property="og:title" content="NudgePilot — Agentic ghosting-nudger for the modern job search">
+<meta property="og:description" content="Drafts the follow-ups you forget. Closes the pipelines that ghosted you. LLMs for language. Code for decisions.">
+<meta property="og:type" content="website">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "NudgePilot",
+  "applicationCategory": "BusinessApplication",
+  "description": "Agentic job-search ghosting nudger with deterministic policy engine.",
+  "operatingSystem": "Cross-platform",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ MESH BACKGROUND (atmosphere) ============ -->
+<div class="mesh-bg" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ============ NOISE OVERLAY ============ -->
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<!-- ============ FLOATING NAV ============ -->
+<header>
+<nav class="nav" aria-label="Primary">
+  <a href="#top" class="nav__brand" aria-label="NudgePilot home">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M6 32 L58 12 L42 56 L32 38 L6 32 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M32 38 L32 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M32 32 L46 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="32" cy="32" r="1.6" fill="currentColor"/>
+    </svg>
+    NudgePilot
+  </a>
+  <div class="nav__links">
+    <a class="nav__link" href="#problem">The Problem</a>
+    <a class="nav__link" href="#solution">The Solution</a>
+    <a class="nav__link" href="#policy">Policy</a>
+    <a class="nav__link" href="#arch">Architecture</a>
+    <a class="nav__link" href="#tick">Live Tick</a>
+    <a class="nav__link" href="#deploy">Deploy</a>
+  </div>
+  <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile overlay -->
+<div class="nav-overlay" aria-hidden="true">
+  <a href="#problem">The Problem</a>
+  <a href="#solution">The Solution</a>
+  <a href="#policy">Policy</a>
+  <a href="#arch">Architecture</a>
+  <a href="#tick">Live Tick</a>
+  <a href="#deploy">Deploy</a>
+  <a href="#sources">Sources</a>
+</div>
+</header>
+
+<!-- ============ MAIN ============ -->
+<main id="main">
+
+  <!-- ============================================================
+       §01 — HERO
+       ============================================================ -->
+  <section class="section hero" id="top">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <div class="eyebrow"><span class="dot"></span>v0.4.1 · TASKMASTER TRACK</div>
+          <h1 class="hero__title reveal">
+            Trackers <em>remember.</em><br>
+            NudgePilot <em>acts.</em>
+          </h1>
+          <p class="hero__sub reveal">
+            An <strong>agentic ghosting-nudger</strong> for the modern job search.
+            It reads your inbox, tracks every application through a deterministic state machine,
+            drafts the <strong>perfectly-timed follow-ups</strong>, detects dead pipelines,
+            and emails you a "while you slept" report — <strong>asynchronously</strong>, while you do something else.
+          </p>
+          <div class="hero__ctas reveal">
+            <a class="btn btn--primary btn--lg" href="#tick">
+              See it run
+              <span class="btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 8 L13 8 M9 4 L13 8 L9 12"/></svg></span>
+            </a>
+            <a class="btn btn--secondary btn--lg" href="#policy">
+              Read the policy
+              <span class="btn__icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 8 L13 8 M9 4 L13 8 L9 12"/></svg></span>
+            </a>
+          </div>
+          <div class="hero__meta reveal">
+            <span><b>15</b> unit tests</span>
+            <span><b>0</b> credentials for demo</b></span>
+            <span><b>~$0</b>/month at scale</span>
+          </div>
+        </div>
+
+        <!-- Hero terminal cascade — Z-axis tilt -->
+        <div class="hero__terminal-wrap reveal">
+          <div class="terminal">
+            <div class="terminal__bar">
+              <div class="terminal__bar-dots"><span></span><span></span><span></span></div>
+              <div class="terminal__bar-title">~/nudgepilot · run_tick()</div>
+              <div class="terminal__bar-meta">UTC</div>
+            </div>
+            <div class="terminal__body" id="hero-terminal-body">
+              <span class="terminal__line is-visible"><span class="ts">06:00:00</span><span>$ python nudgepilot_cli.py auto</span></span>
+              <span class="terminal__line is-visible"><span class="ts">06:00:00</span><span class="tag tag-acid">seed</span>wrote 30 applications</span>
+              <span class="terminal__line is-visible"><span class="ts">06:00:01</span><span class="tag tag-sky">classified</span>rejection: Job application update</span>
+              <span class="terminal__line is-visible"><span class="ts">06:00:01</span><span class="tag tag-sky">classified</span>interview: Interview invitation — ML Engineer</span>
+              <span class="terminal__line is-visible"><span class="ts">06:00:02</span><span class="tag tag-acid">drafted</span>nudge #1 for DevOps Engineer @ Veldex</span>
+              <span class="terminal__line is-visible"><span class="ts">06:00:02</span><span class="tag tag-acid">drafted</span>nudge #2 for Solutions Architect @ Aperture Cloud</span>
+              <span class="terminal__line is-visible"><span class="ts">06:00:03</span><span class="tag tag-rust">ghosted</span>closed Staff Engineer @ Ridgetop (47d past cutoff)</span>
+              <span class="terminal__line is-visible"><span class="ts">06:00:03</span><span>$ </span><span class="terminal__cursor"></span></span>
+            </div>
+            <div class="terminal__progress"><div class="terminal__progress-bar" style="transform:scaleX(1)"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §02 — THE NUMBER
+       ============================================================ -->
+  <section class="section number" id="problem">
+    <div class="container">
+      <div class="number__top">
+        <div>
+          <div class="number__big reveal">53<span>%</span></div>
+          <p class="number__caption reveal">of job seekers reported being ghosted by employers in 2025 — a three-year high.</p>
+        </div>
+        <div class="number__lede reveal">
+          <p><strong>Rejections stink.</strong> Ghosting — applying to dozens of jobs and hearing <em>nothing back</em> — is the #1 frustration of the modern job search.</p>
+          <p style="margin-top:1.2em"><strong>48%</strong> of applicants got zero response in 2025, a three-year high. Most candidates <em>never follow up</em>. The ones who do mis-time it — panicking at day 2 or giving up at day 10, when the median first response is <strong>6–7 days</strong> and the median employer time-to-fill runs <strong>~44 days</strong>.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="number__support" style="margin-top: 2.5rem;">
+        <div class="number__support-item reveal">
+          <div class="number__support-num">~23<span style="font-size:0.45em;color:var(--bone-mute);margin-left:0.15em">min</span></div>
+          <div class="number__support-label">Time to complete one application — per LinkedIn</div>
+        </div>
+        <div class="number__support-item reveal">
+          <div class="number__support-num number__support-num--acid">~32<span style="font-size:0.45em;color:var(--bone-mute);margin-left:0.15em">apps</span></div>
+          <div class="number__support-label">Applications per successful hire — Interview Guys 2025</div>
+        </div>
+        <div class="number__support-item reveal">
+          <div class="number__support-num number__support-num--rust">~44<span style="font-size:0.45em;color:var(--bone-mute);margin-left:0.15em">days</span></div>
+          <div class="number__support-label">Median employer time-to-fill — SHRM 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §03 — THE DIAGNOSIS
+       ============================================================ -->
+  <section class="section diagnosis">
+    <div class="container">
+      <div class="diagnosis__inner">
+        <div class="diagnosis__copy reveal">
+          The black hole is <strong>not the ATS</strong>.
+          <span>A persistent myth says 75% of applications are auto-rejected — that stat has no credible source. The real failure is <em style="color:var(--rust);font-style:italic">human inattention at scale</em>: overwhelmed recruiters drop threads. The fix isn't gaming the robot. It's systematic, well-timed, human follow-up that overwhelmed humans <em style="color:var(--acid);font-style:italic">never get around to</em>. That's exactly what an agent is for.</span>
+        </div>
+
+        <div class="diagnosis__rail-wrap reveal">
+          <div class="diagnosis__rail-head">
+            <strong>30 application threads</strong>
+            <span>scroll →</span>
+          </div>
+          <div class="inbox-rail">
+            <div class="inbox-pill" data-status="NUDGED_2">
+              <div class="inbox-pill__row1"><span class="inbox-pill__company">Veldex</span><span class="pill nudged-2"><span class="pdot"></span>NUDGED_2</span></div>
+              <div class="inbox-pill__role">DevOps Engineer</div>
+              <div class="inbox-pill__meta"><span>day 12</span><span>2 nudges</span></div>
+            </div>
+            <div class="inbox-pill" data-status="NUDGED_1">
+              <div class="inbox-pill__row1"><span class="inbox-pill__company">Packraft</span><span class="pill nudged-1"><span class="pdot"></span>NUDGED_1</span></div>
+              <div class="inbox-pill__role">Mobile Engineer</div>
+              <div class="inbox-pill__meta"><span>day 10</span><span>1 nudge</span></div>
+            </div>
+            <div class="inbox-pill" data-status="NUDGED_2">
+              <div class="inbox-pill__row1"><span class="inbox-pill__company">Aperture Cloud</span><span class="pill nudged-2"><span class="pdot"></span>NUDGED_2</span></div>
+              <div class="inbox-pill__role">Solutions Architect</div>
+              <div class="inbox-pill__meta"><span>day 16</span><span>2 nudges</span></div>
+            </div>
+            <div class="inbox-pill" data-status="APPLIED">
+              <div class="inbox-pill__row1"><span class="inbox-pill__company">Hexmark</span><span class="pill applied"><span class="pdot"></span>APPLIED</span></div>
+              <div class="inbox-pill__role">Frontend Engineer</div>
+              <div class="inbox-pill__meta"><span>day 8</span><span>due now</span></div>
+            </div>
+            <div class="inbox-pill" data-status="REJECTED">
+              <div class="inbox-pill__row1"><span class="inbox-pill__company">Acme Analytics</span><span class="pill rejected"><span class="pdot"></span>REJECTED</span></div>
+              <div class="inbox-pill__role">Data Analyst</div>
+              <div class="inbox-pill__meta"><span>day 6</span><span>closed</span></div>
+            </div>
+            <div class="inbox-pill" data-status="GHOSTED">
+              <div class="inbox-pill__row1"><span class="inbox-pill__company">Ridgetop</span><span class="pill ghosted"><span class="pdot"></span>GHOSTED</span></div>
+              <div class="inbox-pill__role">Staff Engineer</div>
+              <div class="inbox-pill__meta"><span>day 67</span><span>closed</span></div>
+            </div>
+            <div class="inbox-pill" data-status="NUDGED_1">
+              <div class="inbox-pill__row1"><span class="inbox-pill__company">Nimbus Labs</span><span class="pill nudged-1"><span class="pdot"></span>NUDGED_1</span></div>
+              <div class="inbox-pill__role">ML Engineer</div>
+              <div class="inbox-pill__meta"><span>day 9</span><span>interview</span></div>
+            </div>
+            <div class="inbox-pill" data-status="GHOSTED">
+              <div class="inbox-pill__row1"><span class="inbox-pill__company">Cinder Well</span><span class="pill ghosted"><span class="pdot"></span>GHOSTED</span></div>
+              <div class="inbox-pill__role">iOS Engineer</div>
+              <div class="inbox-pill__meta"><span>day 72</span><span>closed</span></div>
+            </div>
+          </div>
+          <p class="policy__caption reveal" style="margin-top: var(--s-3);">
+            Every thread. Every status. Every day-since-applied.
+            The agent treats each one as a deterministic state — no vibes, no guessing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §04 — WHAT IT DOES (Asymmetrical Bento)
+       ============================================================ -->
+  <section class="section what" id="solution">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="h-section">One full tick — <em style="color:var(--acid);font-style:italic">four steps</em>, all autonomous.</h2>
+        <p class="body-prose" style="margin-top:1rem;max-width:60ch">Every run is the same loop. No humans in the path between <em style="font-family:var(--font-display);font-style:italic;color:var(--bone)">06:00 UTC</em> and your inbox.</p>
+      </div>
+
+      <div class="what__bento">
+        <!-- Bento 1: INTAKE (col-span-7 row-span-2) -->
+        <div class="card card--lg bento bento-1 reveal">
+          <div class="card__inner">
+            <div class="bento__num">01</div>
+            <h3 class="bento__title">Intake</h3>
+            <p class="bento__body">Consumes new inbox emails, classifies each one (rejection · interview · soft-pending · question · other) with Gemini, and updates application state via the policy engine.</p>
+            <div class="bento__viz">
+              <div class="mini-inbox">
+                <div class="mini-inbox__row">
+                  <span class="mini-inbox__tag mini-inbox__tag--rejection">REJECTION</span>
+                  <span class="mini-inbox__subj">Re: Data Analyst application</span>
+                  <span class="mini-inbox__time">12:04</span>
+                </div>
+                <div class="mini-inbox__row">
+                  <span class="mini-inbox__tag mini-inbox__tag--interview">INTERVIEW</span>
+                  <span class="mini-inbox__subj">Interview invitation — ML Engineer</span>
+                  <span class="mini-inbox__time">12:11</span>
+                </div>
+                <div class="mini-inbox__row">
+                  <span class="mini-inbox__tag mini-inbox__tag--pending">SOFT_PENDING</span>
+                  <span class="mini-inbox__subj">Status update — Frontend</span>
+                  <span class="mini-inbox__time">12:23</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 2: NUDGE (col-span-5 row-span-1) -->
+        <div class="card bento bento-2 reveal">
+          <div class="card__inner">
+            <div class="bento__num">02</div>
+            <h3 class="bento__title">Nudge</h3>
+            <p class="bento__body">Asks the policy engine which applications are <em style="font-family:var(--font-display);font-style:italic;color:var(--bone)">due</em> for a follow-up. Drafts context-rich copy via Gemini. Lands in Gmail <strong>Drafts</strong>.</p>
+            <div class="bento__viz">
+              <div class="mini-nudge">
+                <div class="mini-nudge__head">
+                  <span>draft · nudge #1</span>
+                  <b>→ drafts</b>
+                </div>
+                <div class="mini-nudge__sub">Subject: Re: DevOps Engineer — Veldex application</div>
+                <div class="mini-nudge__body">Following up on my application for the DevOps Engineer position at Veldex. I'm still very interested and would welcome a chance to discuss my background. Happy to provide anything further. — [Your name]</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 3: GHOST-CLOSE (col-span-5 row-span-1) -->
+        <div class="card bento bento-3 reveal">
+          <div class="card__inner">
+            <div class="bento__num bento__num--rust">03</div>
+            <h3 class="bento__title">Ghost-close</h3>
+            <p class="bento__body">After <strong>2 ignored nudges</strong> + a <strong>21-day silence</strong>, the pipeline is marked <code style="background:var(--paper-2);padding:1px 6px;border-radius:4px;font-family:var(--font-mono);font-size:12px;color:var(--rust);border:1px solid var(--hairline)">GHOSTED</code> with the reason. You redirect your effort.</p>
+            <div class="bento__viz">
+              <div class="mini-ghost">
+                <span class="mini-ghost__state mini-ghost__state--active">NUDGED_2</span>
+                <span class="mini-ghost__arrow">→</span>
+                <span class="mini-ghost__state mini-ghost__state--end">GHOSTED</span>
+                <span style="margin-left:auto;color:var(--bone-mute);font-size:10px;letter-spacing:0.1em">47D PAST CUTOFF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 4: DIGEST (col-span-7 row-span-2) -->
+        <div class="card card--lg bento bento-4 reveal">
+          <div class="card__inner">
+            <div class="bento__num bento__num--sky">04</div>
+            <h3 class="bento__title">Digest</h3>
+            <p class="bento__body">Emails you the <em style="font-family:var(--font-display);font-style:italic;color:var(--acid)">"While you slept"</em> report — what it drafted, what it closed, what it caught. The action log is auditable, chronological, per-tick.</p>
+            <div class="bento__viz">
+              <div class="digest-card">
+                <div class="digest-card__head">
+                  <span class="digest-card__title">NudgePilot — While you slept</span>
+                  <span class="digest-card__time">2026-08-31 · 06:00 UTC</span>
+                </div>
+                <div class="digest-card__section">
+                  <div class="digest-card__heading">[NUDGES DRAFTED] · 17</div>
+                  <div class="digest-card__list">
+                    <div class="digest-card__item">Re: DevOps Engineer — Veldex application</div>
+                    <div class="digest-card__item">Quick check-in — Solutions Architect @ Aperture Cloud</div>
+                    <div class="digest-card__item">Re: ML Ops Engineer — Stellara application</div>
+                    <div class="digest-card__item" style="color:var(--bone-mute)">+ 14 more</div>
+                  </div>
+                </div>
+                <div class="digest-card__section">
+                  <div class="digest-card__heading digest-card__heading--rust">[PIPELINES CLOSED] · 8</div>
+                  <div class="digest-card__list">
+                    <div class="digest-card__item" style="color:var(--rust)">Ridgetop · Cinder Well · Bramble · Tidalworks</div>
+                    <div class="digest-card__item" style="color:var(--bone-mute)">+ 4 more</div>
+                  </div>
+                </div>
+                <div class="digest-card__section">
+                  <div class="digest-card__heading digest-card__heading--sky">[REPLIES CLASSIFIED] · 3</div>
+                  <div class="digest-card__list">
+                    <div class="digest-card__item">rejection · interview · soft_pending</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §05 — THE POLICY ENGINE
+       ============================================================ -->
+  <section class="section policy" id="policy">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="h-section">LLMs for <em style="color:var(--acid);font-style:italic">language</em>.<br>Code for <em style="color:var(--rust);font-style:italic">decisions</em>.</h2>
+      </div>
+
+      <div class="policy__inner">
+        <div class="policy__machine reveal" aria-label="Application state machine"><span class="muted">   APPLIED</span><span class="arrow"> ──day 7, silent──► </span><span class="accent">NUDGED_1</span><span class="arrow"> ──day 7 more──► </span><span class="accent">NUDGED_2</span><span class="arrow"> ──21d silent──► </span><span class="tag-rust">GHOSTED</span>
+<span class="muted">      │                          │                        │</span>
+<span class="muted">      └── reply?? ───────────────┴────────────────────────┴──► </span><span class="accent">RESPONDED / INTERVIEW / REJECTED / OFFER</span></div>
+
+        <div class="policy__side">
+          <div class="policy__quote reveal">
+            <em>The policy engine</em> is the architectural-discipline proof point. Every "when / stop / ghost" decision is deterministic, unit-tested <code style="font-family:var(--font-mono);font-style:normal;font-size:0.6em;color:var(--acid);background:var(--paper-2);padding:2px 8px;border-radius:6px;border:1px solid var(--hairline)">core/policy.py</code>. Gemini is confined to <em>language</em>: extraction, classification, drafting.
+          </div>
+
+          <div class="card reveal">
+            <div class="card__inner" style="padding: var(--s-5);">
+              <div class="policy-line"><span class="policy-line__key">FIRST_NUDGE_DAYS</span><span class="policy-line__val">7</span><span class="policy-line__desc">day of first follow-up</span></div>
+              <div class="policy-line"><span class="policy-line__key">SECOND_NUDGE_DAYS</span><span class="policy-line__val">7</span><span class="policy-line__desc">gap between nudge 1 &amp; 2</span></div>
+              <div class="policy-line"><span class="policy-line__key">NUDGE_CEILING</span><span class="policy-line__val">2</span><span class="policy-line__desc">max nudges per application</span></div>
+              <div class="policy-line"><span class="policy-line__key">GHOST_CUTOFF_DAYS</span><span class="policy-line__val">21</span><span class="policy-line__desc">silence past cutoff → GHOSTED</span></div>
+              <div class="policy-line"><span class="policy-line__key">MIN_COOLDOWN_HOURS</span><span class="policy-line__val">48</span><span class="policy-line__desc">min gap between touches</span></div>
+            </div>
+          </div>
+
+          <div class="policy__tests reveal">
+            <span class="pill"><span class="pdot" style="background:var(--acid);box-shadow:0 0 6px var(--acid)"></span>15 unit tests</span>
+            <span class="pill"><span class="pdot" style="background:var(--sky);box-shadow:0 0 6px var(--sky)"></span>100% policy coverage</span>
+            <span class="pill"><span class="pdot" style="background:var(--rust);box-shadow:0 0 6px var(--rust)"></span>no LLM in the loop</span>
+            <span class="pill"><span class="pdot" style="background:var(--bone-mute)"></span>deterministic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §06 — THE GUARDRAILS
+       ============================================================ -->
+  <section class="section guardrails">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="h-section">The autonomy dial — five guardrails the agent <em style="color:var(--acid);font-style:italic">cannot</em> break.</h2>
+        <p class="body-prose" style="margin-top:1rem;max-width:60ch">Judges will ask about this. The whole point of putting decisions in code is that the agent has a fixed ceiling. There is no <em style="font-family:var(--font-display);font-style:italic">full-auto</em> default.</p>
+      </div>
+
+      <div>
+        <div class="guardrail reveal">
+          <div class="guardrail__num">01</div>
+          <div>
+            <div class="guardrail__name">Drafts, not sends.</div>
+            <p class="guardrail__body">All nudges land in Gmail <code>Drafts</code> for 1-click approval. Full-auto is an <strong>opt-in toggle</strong>, never the default.</p>
+          </div>
+        </div>
+        <div class="guardrail reveal">
+          <div class="guardrail__num">02</div>
+          <div>
+            <div class="guardrail__name">Nudge ceiling.</div>
+            <p class="guardrail__body">Maximum <strong>two</strong> follow-ups per application, ever. No exceptions, no overrides, no "just one more".</p>
+          </div>
+        </div>
+        <div class="guardrail reveal">
+          <div class="guardrail__num">03</div>
+          <div>
+            <div class="guardrail__name">Cooldown.</div>
+            <p class="guardrail__body">Minimum <strong>7 days</strong> between nudges. Minimum <strong>48 hours</strong> before re-poking the same thread.</p>
+          </div>
+        </div>
+        <div class="guardrail reveal">
+          <div class="guardrail__num">04</div>
+          <div>
+            <div class="guardrail__name">Hard stops.</div>
+            <p class="guardrail__body">Never nudge after an explicit rejection. <strong>Never resurrect</strong> a closed pipeline — even from a late reply. The candidate has already moved on.</p>
+          </div>
+        </div>
+        <div class="guardrail reveal">
+          <div class="guardrail__num">05</div>
+          <div>
+            <div class="guardrail__name">Ghost closure.</div>
+            <p class="guardrail__body">After day 21 + 2 ignored nudges → <code>GHOSTED</code>. The pipeline is closed with a reason. You redirect effort to what's still alive.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §07 — ARCHITECTURE
+       ============================================================ -->
+  <section class="section arch" id="arch">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="h-section">How the agent is <em style="color:var(--acid);font-style:italic">wired</em>.</h2>
+        <p class="body-prose" style="margin-top:1rem;max-width:60ch">Triggered daily at 06:00 UTC. Deployed to Cloud Run (scale-to-zero). State in Cloud Firestore. LLM boundary kept narrow.</p>
+      </div>
+
+      <div class="arch__inner">
+        <div class="arch__diagram reveal">
+          <img src="assets/architecture.svg" alt="NudgePilot architecture: triggers (Cloud Scheduler, Gmail Watch) → agent (Root Coordinator, Intake, Nudge, Policy Engine) → state (Firestore / InMemoryStore) → text layer (Gemini 3.5 / offline fallback) → deliverables (Gmail Drafts, digest, action log)" width="880" height="480">
+        </div>
+
+        <div class="arch__steps">
+          <div class="arch__step reveal">
+            <span class="arch__step-n">01</span>
+            <div>
+              <div class="arch__step-title">Triggers</div>
+              <p class="arch__step-body"><code>Cloud Scheduler</code> fires daily at 06:00 UTC. <code>Gmail Watch</code> pushes inbound emails to Pub/Sub in real time. Both hit the same Cloud Run service.</p>
+            </div>
+          </div>
+          <div class="arch__step reveal">
+            <span class="arch__step-n">02</span>
+            <div>
+              <div class="arch__step-title">Agent</div>
+              <p class="arch__step-body">Root coordinator calls three sub-agents: <code>StatusAgent</code> classifies emails, <code>NudgeAgent</code> drafts copy, <code>Policy Engine</code> makes every green/red decision.</p>
+            </div>
+          </div>
+          <div class="arch__step reveal">
+            <span class="arch__step-n">03</span>
+            <div>
+              <div class="arch__step-title">State</div>
+              <p class="arch__step-body"><code>Cloud Firestore</code> in production (<code>nudgepilot_applications</code> collection). <code>InMemoryStore</code> for dev and tests, with a deterministic seeded corpus.</p>
+            </div>
+          </div>
+          <div class="arch__step reveal">
+            <span class="arch__step-n">04</span>
+            <div>
+              <div class="arch__step-title">Text layer</div>
+              <p class="arch__step-body"><code>Gemini 3.5 Flash</code> via Vertex AI in production, or <code>Offline LLM</code> (deterministic, zero credentials) for the demo path. Same prompt, same interface.</p>
+            </div>
+          </div>
+          <div class="arch__step reveal">
+            <span class="arch__step-n">05</span>
+            <div>
+              <div class="arch__step-title">Deliverables</div>
+              <p class="arch__step-body">Three outputs per tick: <strong>Gmail Drafts</strong> (per-app follow-ups, awaiting approval), the <strong>"While you slept" digest email</strong>, and a per-tick <strong>action log</strong> for audit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--s-7);">
+        <div class="stack-grid">
+          <div class="stack-tile reveal"><img src="assets/icons/cloud-run.svg" alt="" width="20" height="20"> Cloud Run</div>
+          <div class="stack-tile reveal"><img src="assets/icons/database.svg" alt="" width="20" height="20"> Firestore</div>
+          <div class="stack-tile reveal"><img src="assets/icons/clock.svg" alt="" width="20" height="20"> Cloud Scheduler</div>
+          <div class="stack-tile reveal"><img src="assets/icons/pubsub.svg" alt="" width="20" height="20"> Pub/Sub</div>
+          <div class="stack-tile reveal"><img src="assets/icons/gemini.svg" alt="" width="20" height="20"> Gemini 3.5</div>
+          <div class="stack-tile reveal"><img src="assets/icons/gmail.svg" alt="" width="20" height="20"> Gmail API</div>
+          <div class="stack-tile reveal"><img src="assets/icons/fastapi.svg" alt="" width="20" height="20"> FastAPI</div>
+          <div class="stack-tile reveal"><img src="assets/icons/gem.svg" alt="" width="20" height="20"> Google ADK</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §08 — LIVE TICK
+       ============================================================ -->
+  <section class="section tick" id="tick">
+    <div class="container">
+      <div class="tick__head">
+        <h2 class="tick__headline reveal">One real run. <em style="color:var(--acid);font-style:italic">Captured.</em></h2>
+        <div></div>
+        <div class="tick__note reveal">
+          Captured from <code style="background:var(--paper-2);padding:2px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;color:var(--acid);border:1px solid var(--hairline)">python nudgepilot_cli.py auto</code> · no edits
+        </div>
+      </div>
+
+      <div class="terminal reveal">
+        <div class="terminal__bar">
+          <div class="terminal__bar-dots"><span></span><span></span><span></span></div>
+          <div class="terminal__bar-title">nudgepilot · run_tick() · 25 actions</div>
+          <div class="terminal__bar-meta" id="terminal-summary">loading…</div>
+        </div>
+        <div class="terminal__body" id="terminal-body" role="log" aria-live="polite"></div>
+        <div class="terminal__progress"><div class="terminal__progress-bar" id="terminal-progress-bar"></div></div>
+      </div>
+
+      <div class="tick__outcomes">
+        <div class="card reveal">
+          <div class="card__inner">
+            <div class="stat__num stat__num--acid" id="out-drafted">--</div>
+            <div class="stat__label">NUDGES DRAFTED</div>
+            <div class="stat__sub">Context-rich follow-ups in your Gmail Drafts, awaiting your 1-click approval.</div>
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="card__inner">
+            <div class="stat__num stat__num--rust" id="out-ghosted">--</div>
+            <div class="stat__label">PIPELINES CLOSED</div>
+            <div class="stat__sub">Marked GHOSTED after 2 nudges + 21-day silence. Energy redirected to what's alive.</div>
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="card__inner">
+            <div class="stat__num stat__num--sky" id="out-classified">--</div>
+            <div class="stat__label">REPLIES CLASSIFIED</div>
+            <div class="stat__sub">Rejection, interview, soft_pending, question, advance — all routed by Gemini + policy.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       §09 — DEPLOY
+       ============================================================ -->
+  <section class="section deploy" id="deploy">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="h-section">One-command deploy. <em style="color:var(--acid);font-style:italic">~$0/month.</em></h2>
+        <p class="body-prose" style="margin-top:1rem;max-width:60ch">Scale-to-zero Cloud Run + Gemini Flash + ~30 Firestore docs ≈ well under $1/month. The $150 hackathon credit lasts months.</p>
+      </div>
+
+      <div class="deploy__inner">
+        <div class="deploy__commands reveal">
+          <div class="deploy__commands-head">
+            <span style="color:var(--acid)">●</span>
+            <b>deploy.sh</b>
+            <span style="margin-left:auto">~/nudgepilot/deploy</span>
+          </div>
+          <pre class="deploy__commands-body"><span class="cmd-cmt"># enable services</span>
+gcloud services <span class="cmd-fn">enable</span> run.googleapis.com firestore.googleapis.com \
+    cloudscheduler.googleapis.com pubsub.googleapis.com aiplatform.googleapis.com
+
+<span class="cmd-cmt"># build and deploy to Cloud Run</span>
+gcloud builds <span class="cmd-fn">submit</span> --tag <span class="cmd-arg">gcr.io</span>/$GOOGLE_CLOUD_PROJECT/nudgepilot .
+
+gcloud run <span class="cmd-fn">deploy</span> nudgepilot \
+    --image <span class="cmd-arg">gcr.io</span>/$GOOGLE_CLOUD_PROJECT/nudgepilot \
+    --platform <span class="cmd-str">managed</span> --region <span class="cmd-str">us-central1</span> \
+    --allow-unauthenticated \
+    --memory <span class="cmd-str">512Mi</span> --timeout <span class="cmd-str">300</span> \
+    --set-env-vars <span class="cmd-str">NUDGEPILOT_STORE=firestore</span>
+
+<span class="cmd-cmt"># schedule the daily tick at 06:00 UTC</span>
+gcloud pubsub topics <span class="cmd-fn">create</span> <span class="cmd-str">nudgepilot-tick</span>
+gcloud scheduler jobs <span class="cmd-fn">create</span> http nudgepilot-daily \
+    --schedule=<span class="cmd-str">"0 6 * * *"</span> \
+    --uri=<span class="cmd-str">"$RUN_URL/run"</span> \
+    --http-method=<span class="cmd-str">POST</span></pre>
+        </div>
+
+        <div class="deploy__cost">
+          <div class="deploy__cost-headline reveal">
+            $0<small>per month at demo scale.</small>
+          </div>
+
+          <div class="deploy__cost-block reveal">
+            <div class="cost-bars" id="cost-bars">
+              <div class="cost-bar">
+                <span class="cost-bar__label">Cloud Run</span>
+                <div class="cost-bar__track"><div class="cost-bar__fill" data-w="2"></div></div>
+                <span class="cost-bar__val">~$0</span>
+              </div>
+              <div class="cost-bar">
+                <span class="cost-bar__label">Gemini Flash</span>
+                <div class="cost-bar__track"><div class="cost-bar__fill cost-bar__fill--rust" data-w="8"></div></div>
+                <span class="cost-bar__val">~$0.10</span>
+              </div>
+              <div class="cost-bar">
+                <span class="cost-bar__label">Firestore</span>
+                <div class="cost-bar__track"><div class="cost-bar__fill cost-bar__fill--sky" data-w="4"></div></div>
+                <span class="cost-bar__val">~$0.05</span>
+              </div>
+              <div class="cost-bar">
+                <span class="cost-bar__label">Cloud Scheduler</span>
+                <div class="cost-bar__track"><div class="cost-bar__fill" data-w="1"></div></div>
+                <span class="cost-bar__val">$0.00</span>
+              </div>
+              <hr class="divider" style="margin-top:0.75rem;margin-bottom:0.5rem">
+              <div class="cost-bar">
+                <span class="cost-bar__label" style="color:var(--bone);font-weight:600">TOTAL / month</span>
+                <div></div>
+                <span class="cost-bar__val" style="color:var(--acid);font-weight:700;font-size:14px">~$0.15</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="policy__caption reveal">
+            All services scale-to-zero. You pay per request. The agent runs once a day for ~10 seconds, on a 512Mi instance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER + SOURCES ============ -->
+<footer class="footer" id="sources">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <p class="footer__claim reveal">
+          Built for the<br><em>All Things Agentic</em><br>Hackathon — Taskmaster track.
+        </p>
+        <p class="footer__tagline reveal">DEADLINE · 31 AUG 2026 · 5:00 PM PDT</p>
+      </div>
+
+      <div>
+        <div class="sources-head reveal">
+          <h3>Every number on this page has a source.</h3>
+          <p>Click any citation to open the original. Eight sources. Zero hand-waving.</p>
+        </div>
+        <div class="sources" id="sources-mount">
+          <noscript>
+            <p style="color:var(--bone-mute)">Sources are listed in <code>frontend/data/sources.json</code>. Enable JavaScript to see them rendered.</p>
+          </noscript>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div>
+        NudgePilot · AGENTIC GHOSTING-NUDGER ·
+        <a href="https://allthingsagentichackathon.devpost.com/" target="_blank" rel="noopener noreferrer">Devpost ↗</a>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap">
+        <a href="#top">↑ Top</a>
+        <a href="#policy">Policy</a>
+        <a href="#arch">Architecture</a>
+        <a href="#tick">Live tick</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/main.js" defer></script>
+<script src="scripts/live-tick.js" defer></script>
+
+</body>
+</html>

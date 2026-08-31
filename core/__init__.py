@@ -1,0 +1,1 @@
+# NudgePilot Core package - business domain, policy engine, storage, LLM layer.
